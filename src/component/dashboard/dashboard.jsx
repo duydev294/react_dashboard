@@ -4,6 +4,7 @@ import { Grid, Paper } from '@mui/material';
 import Header from '../header/header';
 import Map_leaflet from '../map_leaflet/map'
 import FloatingActionButtonZoom from "../data_grid/data_grid"
+import FrameDetail from '../frame/frame';
 // import data from "../chart/data"
 export default function Dashboard(){
     return(
@@ -18,9 +19,9 @@ export default function Dashboard(){
                 
 
             }}
-            > A
+            > 
                 <Grid item xs={12} md={8} lg={9} sx ={{display: 'flex', flexFlow:'row wrap',}}>
-                    <Box sx={{width:'70vw',display: 'flex'}}>B
+                    <Box sx={{width:'70vw',display: 'flex'}}>
                         <Paper
                             elevation={6}
                             sx={{
@@ -38,7 +39,7 @@ export default function Dashboard(){
                             
                         </Paper>
                     </Box>
-                    <Box sx={{width:'29vw',display: 'flex'}}>C
+                    <Box sx={{width:'29vw',display: 'flex'}}>
                         <Paper
                             elevation={6}
                             sx={{
@@ -54,7 +55,7 @@ export default function Dashboard(){
                             
                         </Paper>
                     </Box>
-                    <Box sx={{width:'48vw',display: 'flex'}}>D
+                    <Box sx={{width:'48vw',display: 'flex'}}>
                         <Paper
                             elevation={6}
                             sx={{
@@ -70,7 +71,7 @@ export default function Dashboard(){
                             <FloatingActionButtonZoom ></FloatingActionButtonZoom>
                         </Paper>
                     </Box>
-                    <Box sx={{width:'48vw',display: 'flex'}}>E
+                    <Box sx={{width:'48vw',display: 'flex'}}>
                         <Paper
                             elevation={6}
                             sx={{
@@ -82,7 +83,9 @@ export default function Dashboard(){
                                 height: '40vh',
                                 width: '100vw'
                             }}
-                        ></Paper>
+                        >
+                            <FrameDetail/>
+                        </Paper>
                     </Box>
                    
                 </Grid>

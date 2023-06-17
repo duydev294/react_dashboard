@@ -1,5 +1,5 @@
 import * as React from 'react';
-import SwipeableViews from 'react-swipeable-views';
+// import SwipeableViews from 'react-swipeable-views';
 import PropTypes from 'prop-types'
 import { useTheme } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
@@ -125,11 +125,11 @@ export default function FloatingActionButtonZoom() {
           
         </Tabs>
       </AppBar>
-      <SwipeableViews
+      {/* <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={value}
         onChangeIndex={handleChangeIndex}
-      >
+      > */}
         <TabPanel value={value} index={0} dir={theme.direction}>
           {/* <LineChart data={data}></LineChart> */}
         </TabPanel>
@@ -142,7 +142,7 @@ export default function FloatingActionButtonZoom() {
         <TabPanel value={value} index={3} dir={theme.direction}>
         {/* <LineChart data={data}></LineChart> */}
         </TabPanel>
-      </SwipeableViews>
+      {/* </SwipeableViews> */}
       
     </Box>
   );
