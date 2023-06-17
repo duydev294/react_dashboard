@@ -42,7 +42,7 @@ function GetIcon(status) {
 
 
 
-const Map_leaflet = ()=>{
+const Mapleaflet = ()=>{
   const [markers, setMarkers] = useState([]);
 
   useEffect(() => {
@@ -95,4 +95,4 @@ const Map_leaflet = ()=>{
 
     );
 }
-export default Map_leaflet
+export default Mapleaflet

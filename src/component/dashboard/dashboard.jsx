@@ -2,8 +2,9 @@ import * as React from 'react'
 import Box from '@mui/material/Box'
 import { Grid, Paper } from '@mui/material';
 import Header from '../header/header';
-import Map_leaflet from '../map_leaflet/map'
+import Mapleaflet from '../map_leaflet/map'
 import FloatingActionButtonZoom from "../data_grid/data_grid"
+import StatusTable from '../status/statusDevice';
 import FrameDetail from '../frame/frame';
 // import data from "../chart/data"
 export default function Dashboard(){
@@ -35,7 +36,7 @@ export default function Dashboard(){
                             }}
                         >
                             
-                            <Map_leaflet></Map_leaflet>
+                            <Mapleaflet/>
                             
                         </Paper>
                     </Box>
@@ -52,7 +53,7 @@ export default function Dashboard(){
                                 width: '100vw'
                             }}
                         >
-                            
+                            <StatusTable></StatusTable>
                         </Paper>
                     </Box>
                     <Box sx={{width:'48vw',display: 'flex'}}>
