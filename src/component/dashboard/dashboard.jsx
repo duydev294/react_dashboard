@@ -1,96 +1,97 @@
-import * as React from 'react'
-import Box from '@mui/material/Box'
+import * as React from 'react';
+import Box from '@mui/material/Box';
 import { Grid, Paper } from '@mui/material';
 import Header from '../header/header';
-import Mapleaflet from '../map_leaflet/map'
-import FloatingActionButtonZoom from "../data_grid/data_grid"
+import Mapleaflet from '../map_leaflet/map';
+import FloatingActionButtonZoom from '../data_grid/data_grid';
 import StatusTable from '../status/statusDevice';
 import FrameDetail from '../frame/frame';
 // import data from "../chart/data"
-export default function Dashboard(){
-    return(
-        <Box sx={{display :'flex',width:'100vw',flexDirection:'column'}}>
-            <Header/>
-            <Box 
-            component="main"
-            sx={{
-                flexGrow:1,
-                height: '100vh',
-                overflow:'auto',
-                
+export default function Dashboard() {
+  return (
+    <Box sx={{ display: 'flex', width: '100vw', flexDirection: 'column' }}>
+      <Header />
+      <Box
+        component='main'
+        sx={{
+          flexGrow: 1,
+          height: '100vh',
+          overflow: 'auto',
+        }}
+      >
+        <Grid
+          item
+          xs={12}
+          md={8}
+          lg={9}
+          sx={{ display: 'flex', flexFlow: 'row wrap' }}
+        >
+          <Box sx={{ width: '70vw', display: 'flex' }}>
+            <Paper
+              elevation={6}
+              sx={{
+                p: 1, // padding
+                m: 2, //margin
 
-            }}
-            > 
-                <Grid item xs={12} md={8} lg={9} sx ={{display: 'flex', flexFlow:'row wrap',}}>
-                    <Box sx={{width:'70vw',display: 'flex'}}>
-                        <Paper
-                            elevation={6}
-                            sx={{
-                                p:1, // padding 
-                                m:2, //margin
-                                
-                                display: 'flex',
-                                flexDirection:'row',
-                                height: '45vh',
-                                width: '100vw'
-                            }}
-                        >
-                            
-                            <Mapleaflet/>
-                            
-                        </Paper>
-                    </Box>
-                    <Box sx={{width:'29vw',display: 'flex'}}>
-                        <Paper
-                            elevation={6}
-                            sx={{
-                                p:1, // padding 
-                                m:2, //margin
-                                
-                                display: 'flex',
-                                flexDirection:'row',
-                                height: '45vh',
-                                width: '100vw'
-                            }}
-                        >
-                            <StatusTable></StatusTable>
-                        </Paper>
-                    </Box>
-                    <Box sx={{width:'48vw',display: 'flex'}}>
-                        <Paper
-                            elevation={6}
-                            sx={{
-                                p:1, // padding 
-                                m:2, //margin
-                                
-                                display: 'flex',
-                                flexDirection:'row',
-                                height: '40vh',
-                                width: '100vw'
-                            }}
-                        >
-                            <FloatingActionButtonZoom ></FloatingActionButtonZoom>
-                        </Paper>
-                    </Box>
-                    <Box sx={{width:'48vw',display: 'flex'}}>
-                        <Paper
-                            elevation={6}
-                            sx={{
-                                p:1, // padding 
-                                m:2, //margin
-                                
-                                display: 'flex',
-                                flexDirection:'row',
-                                height: '40vh',
-                                width: '100vw'
-                            }}
-                        >
-                            <FrameDetail/>
-                        </Paper>
-                    </Box>
-                   
-                </Grid>
-            </Box>
-        </Box> 
-    );
+                display: 'flex',
+                flexDirection: 'row',
+                height: '45vh',
+                width: '100vw',
+              }}
+            >
+              <Mapleaflet />
+            </Paper>
+          </Box>
+          <Box sx={{ width: '28vw', display: 'flex' }}>
+            <Paper
+              elevation={6}
+              sx={{
+                p: 1, // padding
+                m: 2, //margin
+
+                display: 'flex',
+                flexDirection: 'column',
+                height: '45vh',
+                width: '100vw',
+              }}
+            >
+              <StatusTable></StatusTable>
+            </Paper>
+          </Box>
+          <Box sx={{ width: '49vw', display: 'flex' }}>
+            <Paper
+              elevation={6}
+              sx={{
+                p: 1, // padding
+                m: 2, //margin
+
+                display: 'flex',
+                flexDirection: 'row',
+                height: '40vh',
+                width: '100vw',
+              }}
+            >
+              <FloatingActionButtonZoom></FloatingActionButtonZoom>
+            </Paper>
+          </Box>
+          <Box sx={{ width: '49vw', display: 'flex' }}>
+            <Paper
+              elevation={6}
+              sx={{
+                p: 1, // padding
+                m: 2, //margin
+
+                display: 'flex',
+                flexDirection: 'row',
+                height: '40vh',
+                width: '100vw',
+              }}
+            >
+              <FrameDetail />
+            </Paper>
+          </Box>
+        </Grid>
+      </Box>
+    </Box>
+  );
 }

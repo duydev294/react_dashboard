@@ -1,6 +1,6 @@
 import * as React from 'react';
 // import SwipeableViews from 'react-swipeable-views';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import { useTheme } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Tabs from '@mui/material/Tabs';
@@ -15,29 +15,31 @@ import { green } from '@mui/material/colors';
 import Box from '@mui/material/Box';
 import { SxProps } from '@mui/system';
 import LineChart from '../chart/line_chart';
-
+import { useContext } from 'react';
+import { ApiContext } from '../../context/ApiProvider';
+import { useEffect } from 'react';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
   return (
     <Typography
-      component="div"
-      role="tabpanel"
+      component='div'
+      role='tabpanel'
       hidden={value !== index}
       id={`action-tabpanel-${index}`}
       aria-labelledby={`action-tab-${index}`}
       {...other}
     >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+      {value === index && <Box>{children}</Box>}
     </Typography>
   );
 }
-TabPanel.prototype={
+TabPanel.prototype = {
   childen: PropTypes.node,
   index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired
-}
+  value: PropTypes.number.isRequired,
+};
 function a11yProps(index) {
   return {
     id: `action-tab-${index}`,
@@ -59,59 +61,70 @@ const fabGreenStyle = {
   },
 };
 
-const data = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-  datasets: [
-    {
-      label: 'Sample Data',
-      data: [12, 19, 3, 5, 2, 3],
-      fill: false,
-      borderColor: 'rgb(75, 192, 192)',
-      tension: 0.1
-    }
-  ]
-};
-
-
-
-
 export default function FloatingActionButtonZoom() {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
+  const [listTemp, setListTemp] = React.useState([]);
+  const [listEC, setListEC] = React.useState([]);
+  const [listDO, setListDO] = React.useState([]);
+  const [listPH, setListPH] = React.useState([]);
+  const [listLabel, setListLabel] = React.useState([]);
+
+  const { chartData } = useContext(ApiContext);
+
+  useEffect(() => {
+    if (chartData && chartData.list && chartData.list.length > 0) {
+      let lstLabel = [];
+      let lstTemp = [];
+      let lstEC = [];
+      let lstDO = [];
+      let lstPH = [];
+      for (const item of chartData.list) {
+        lstLabel.push(item.dt_txt);
+        lstTemp.push(item.main.temp);
+        lstEC.push(item.wind.speed);
+        lstDO.push(item.main.humidity);
+        lstPH.push(item.main.feels_like);
+      }
+      setListTemp([
+        {
+          label: 'Nhiệt độ',
+          data: lstTemp,
+          backgroundColor: '#2196F3',
+          borderColor: '#2196F3',
+        },
+      ]);
+      setListEC([
+        {
+          label: 'EC',
+          data: lstEC,
+          backgroundColor: '#2196F3',
+          borderColor: '#2196F3',
+        },
+      ]);
+      setListDO([
+        {
+          label: 'DO',
+          data: lstDO,
+          backgroundColor: '#2196F3',
+          borderColor: '#2196F3',
+        },
+      ]);
+      setListPH([
+        {
+          label: 'PH',
+          data: lstPH,
+          backgroundColor: '#2196F3',
+          borderColor: '#2196F3',
+        },
+      ]);
+      setListLabel(lstLabel);
+    }
+  }, [chartData]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
-  const handleChangeIndex = (index) => {
-    setValue(index);
-  };
-
-  const transitionDuration = {
-    enter: theme.transitions.duration.enteringScreen,
-    exit: theme.transitions.duration.leavingScreen,
-  };
-
-  const fabs = [
-    {
-      color: 'primary' ,
-      sx: fabStyle ,
-      icon: <AddIcon />,
-      label: 'Add',
-    },
-    {
-      color: 'secondary' ,
-      sx: fabStyle ,
-      icon: <EditIcon />,
-      label: 'Edit',
-    },
-    {
-      color: 'inherit' ,
-      sx: { ...fabStyle, ...fabGreenStyle } ,
-      icon: <UpIcon />,
-      label: 'Expand',
-    },
-  ];
 
   return (
     <Box
@@ -122,39 +135,37 @@ export default function FloatingActionButtonZoom() {
         minHeight: '100%',
       }}
     >
-      <AppBar position="static" color="default"  sx={{height:'30px'}}>
+      <AppBar position='static' color='default' sx={{ height: '30px' }}>
         <Tabs
           value={value}
           onChange={handleChange}
-          indicatorColor="primary"
-          textColor="primary"
-          variant="fullWidth"
-          aria-label="action tabs example"
-          fontSize="15"
-          minHeight = '0'
-          sx={{minHeight:'30px'}}
+          indicatorColor='primary'
+          textColor='primary'
+          variant='fullWidth'
+          aria-label='action tabs example'
+          fontSize='15'
+          minHeight='0'
+          sx={{ minHeight: '30px' }}
         >
-          <Tab label="Temp" {...a11yProps(0)} />
-          <Tab label="EC" {...a11yProps(1)} />
-          <Tab label="DO" {...a11yProps(2)} />
-          <Tab label="pH" {...a11yProps(3)} />
-          
+          <Tab label='Temp' {...a11yProps(0)} />
+          <Tab label='EC' {...a11yProps(1)} />
+          <Tab label='DO' {...a11yProps(2)} />
+          <Tab label='pH' {...a11yProps(3)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0} dir={theme.direction}>
+        <LineChart listLabel={listLabel} listData={listTemp}></LineChart>
       </TabPanel>
 
-
-        <TabPanel value={value} index={1} dir={theme.direction}>
-        {/* <LineChart data={data}></LineChart> */}
-        </TabPanel>
-        <TabPanel value={value} index={2} dir={theme.direction}>
-        {/* <LineChart data={data}></LineChart> */}
-        </TabPanel>
-        <TabPanel value={value} index={3} dir={theme.direction}>
-        {/* <LineChart data={data}></LineChart> */}
-        </TabPanel>
-      
+      <TabPanel value={value} index={1} dir={theme.direction}>
+        <LineChart listLabel={listLabel} listData={listEC}></LineChart>
+      </TabPanel>
+      <TabPanel value={value} index={2} dir={theme.direction}>
+        <LineChart listLabel={listLabel} listData={listDO}></LineChart>
+      </TabPanel>
+      <TabPanel value={value} index={3} dir={theme.direction}>
+        <LineChart listLabel={listLabel} listData={listPH}></LineChart>
+      </TabPanel>
     </Box>
   );
 }

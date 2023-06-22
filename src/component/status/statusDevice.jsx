@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../status/status.css';
+import { ApiContext } from '../../context/ApiProvider';
 
 const StatusTable = () => {
+  const { apiData } = useContext(ApiContext);
+
   return (
-    <div className='heading flex'>
-        Detailed status
-    </div>
+    <>
+      <div className='heading flex'>Detailed status</div>
+      {apiData ? <p>{apiData.weather[0].description}</p> : null}
+    </>
   );
 };
 
