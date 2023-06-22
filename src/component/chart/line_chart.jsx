@@ -1,4 +1,4 @@
-
+import { ResponsiveLine } from "@nivo/line"
 
 
 const LineChart =({data})=>{

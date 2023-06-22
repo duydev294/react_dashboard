@@ -1,5 +1,5 @@
 import React from 'react';
-import '../status/status.scss';
+import '../status/status.css';
 
 const StatusTable = () => {
   return (

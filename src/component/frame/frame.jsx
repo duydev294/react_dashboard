@@ -17,7 +17,7 @@ const FrameDetail = () => {
       <div children="divDetails1">
           <h2>Current</h2>
       </div>
-      {/* <div className="secContainer">
+      <div className="secContainer">
         <div className="singleItem">
           <img className="imgPH" src={pH} alt="pH"/>
           <h2 id="pHValue">{apiData.main.temp}</h2>
@@ -41,7 +41,7 @@ const FrameDetail = () => {
           <h2 id="TempValue">{apiData.main.feels_like}</h2>
           <h3>°C</h3>
         </div>
-      </div>        */}
+      </div>       
 
       
       

@@ -15,8 +15,6 @@ import { green } from '@mui/material/colors';
 import Box from '@mui/material/Box';
 import { SxProps } from '@mui/system';
 import LineChart from '../chart/line_chart';
-import { Line } from 'react-chartjs-2';
-
 
 
 function TabPanel(props) {
@@ -144,7 +142,6 @@ export default function FloatingActionButtonZoom() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0} dir={theme.direction}>
-        <Line data={data} />
       </TabPanel>
 
 

@@ -1,4 +1,4 @@
-export default data = [
+export const data = [
     {
       "id": "japan",
       "color": "hsl(343, 70%, 50%)",
@@ -10,7 +10,7 @@ export default data = [
             {
             "x": "08:05 13/06/23",
             "y": 7.4
-            },
+            }, 
             {
             "x": "08:10 13/06/23",
             "y": 7.2
