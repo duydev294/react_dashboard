@@ -40,52 +40,140 @@ const FrameDetail = () => {
 
               <div className='singleItem'>
                 <img className='imgDO' src={DO} alt='pH' />
-                <h2 id='DOValue'>{apiData.main.humidity}</h2>
+                <h2 
+                  id='DOValue'
+                  style={{
+                    color:
+                    apiData.main.humidity < 10
+                        ? 'blue'
+                        : apiData.main.humidity < 30
+                        ? 'orange'
+                        : 'red',
+                  }}
+                >
+                  {apiData.main.humidity}
+                </h2>
                 <h3 className='itemUnit'>mg/L</h3>
               </div>
 
               <div className='singleItem'>
                 <img className='imgEC' src={EC} alt='pH' />
-                <h2 id='ECValue'>{apiData.wind.speed}</h2>
+                <h2 
+                  id='ECValue'
+                  style={{
+                    color:
+                    apiData.wind.speed < 10
+                        ? 'blue'
+                        : apiData.wind.speed < 30
+                        ? 'orange'
+                        : 'red',
+                  }}
+                >
+                  {apiData.wind.speed}
+                </h2>
                 <h3 className='itemUnit'>µS/cm</h3>
               </div>
 
               <div className='singleItem'>
                 <img className='imgTemp' src={temp} alt='Temp' />
-                <h2 id='TempValue'>{apiData.main.feels_like}</h2>
+                <h2 
+                  id='TempValue'
+                  style={{
+                    color:
+                    apiData.main.feels_like < 10
+                        ? 'blue'
+                        : apiData.main.feels_like < 30
+                        ? 'orange'
+                        : 'red',
+                  }}
+                >
+                  {apiData.main.feels_like}
+                </h2>
                 <h3 className='itemUnit'>°C</h3>
               </div>
             </div>
           </>
         ) : null}
-
-        {/* <div className="forecastContainer">
-        
-              <div className="singleItem">
-                <img className="imgPH" src={pH} alt="pH"/>
-                <h2 id="pHValue">{deviceData}</h2>
-                <h3>pH</h3>
-              </div>       
-
-              <div className="singleItem">
-                <img className="imgDO" src={DO} alt="pH"/>
-                <h2 id="DOValue">23</h2>
-                <h3>mg/L</h3>
+        {apiData ? (
+          <>
+            <div children='divDetails1'>
+              <h2>Forecast</h2>
+            </div>
+            <div className='secContainer'>
+              <div className='singleItem'>
+                <img className='imgPH' src={pH} alt='pH' />
+                <h2
+                  id='pHValue'
+                  style={{
+                    color:
+                      apiData.main.temp < 10
+                        ? 'blue'
+                        : apiData.main.temp < 30
+                        ? 'orange'
+                        : 'red',
+                  }}
+                >
+                  {apiData.main.temp}
+                </h2>
+                <h3 className='itemUnit'>pH</h3>
               </div>
 
-              <div className="singleItem">
-                <img className="imgEC" src={EC} alt="pH"/>
-                <h2 id="ECValue">25</h2>
-                <h3>µS/cm</h3>
+              <div className='singleItem'>
+                <img className='imgDO' src={DO} alt='pH' />
+                <h2 
+                  id='DOValue'
+                  style={{
+                    color:
+                    apiData.main.humidity < 10
+                        ? 'blue'
+                        : apiData.main.humidity < 30
+                        ? 'orange'
+                        : 'red',
+                  }}
+                >
+                  {apiData.main.humidity}
+                </h2>
+                <h3 className='itemUnit'>mg/L</h3>
               </div>
 
-              <div className="singleItem">
-                <img className="imgTemp" src={temp} alt="Temp"/>
-                <h2 id="TempValue">36</h2>
-                <h3>°C</h3>
+              <div className='singleItem'>
+                <img className='imgEC' src={EC} alt='pH' />
+                <h2 
+                  id='ECValue'
+                  style={{
+                    color:
+                    apiData.wind.speed < 10
+                        ? 'blue'
+                        : apiData.wind.speed < 30
+                        ? 'orange'
+                        : 'red',
+                  }}
+                >
+                  {apiData.wind.speed}
+                </h2>
+                <h3 className='itemUnit'>µS/cm</h3>
               </div>
 
-      </div> */}
+              <div className='singleItem'>
+                <img className='imgTemp' src={temp} alt='Temp' />
+                <h2 
+                  id='TempValue'
+                  style={{
+                    color:
+                    apiData.main.feels_like < 10
+                        ? 'blue'
+                        : apiData.main.feels_like < 30
+                        ? 'orange'
+                        : 'red',
+                  }}
+                >
+                  {apiData.main.feels_like}
+                </h2>
+                <h3 className='itemUnit'>°C</h3>
+              </div>
+            </div>
+          </>
+        ) : null}
       </div>
     </>
   );

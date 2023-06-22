@@ -28,10 +28,14 @@ const Mapleaflet = () => {
           'https://api.openweathermap.org/data/2.5/weather?id=1573517&appid=20ec6b44f4246937e3befcf4bfe33e08&units=metric'
         );
         const response2 = await fetch(
-          'https://api.openweathermap.org/data/2.5/weather?id=1798909&appid=20ec6b44f4246937e3befcf4bfe33e08&units=metric'
+          'https://api.openweathermap.org/data/2.5/weather?id=1571968&appid=20ec6b44f4246937e3befcf4bfe33e08&units=metric'
+        );
+        const response3 = await fetch(
+          'https://api.openweathermap.org/data/2.5/weather?id=1566346&appid=20ec6b44f4246937e3befcf4bfe33e08&units=metric'
         );
         const data = await response.json();
         const data2 = await response2.json();
+        const data3 = await response3.json();
         const markerData = [
           {
             id: data.id,
@@ -48,6 +52,14 @@ const Mapleaflet = () => {
             lng: data2.coord.lon,
             status: data2.weather.description,
             status_flag: data2.weather.main,
+          },
+          {
+            id: data3.id,
+            name_device: data3.name,
+            lat: data3.coord.lat,
+            lng: data3.coord.lon,
+            status: data3.weather.description,
+            status_flag: data3.weather.main,
           },
         ];
         // console.log(markerData);
