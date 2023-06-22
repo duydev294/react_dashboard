@@ -22,7 +22,7 @@ const LineChart = ({ listLabel, listData }) => {
   const options = {
     plugins: {
       legend: {
-        position: 'right',
+        position: 'top',
       },
     },
   };

@@ -174,7 +174,30 @@ const FrameDetail = () => {
             </div>
           </>
         ) : null}
+
+        <div className='chart'>
+        <span className="block green" style={{width: '16.6em'}}>
+          <span className="value">Tốt</span>
+        </span>
+        <span className="block yellow" style={{width: '16.6em'}}>
+          <span className="value">Trung bình</span>
+        </span>
+        <span className="block orange" style={{width: '16.6em'}}>
+          <span className="value">Kém</span>
+        </span>
+        <span className="block red" style={{width: '16.6em'}}>
+          <span className="value">Xấu</span>
+        </span>
+        <span className="block purple" style={{width: '16.6em'}}>
+          <span className="value">Rất xấu</span>
+        </span>
+        <span className="block brown" style={{width: '16.6em'}}>
+          <span className="value">Nguy hại</span>
+        </span>
+        </div>
       </div>
+
+      
     </>
   );
 };
