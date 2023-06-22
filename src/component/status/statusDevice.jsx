@@ -3,8 +3,8 @@ import '../status/status.scss';
 
 const StatusTable = () => {
   return (
-    <div>
-        A
+    <div className='heading flex'>
+        Detailed status
     </div>
   );
 };

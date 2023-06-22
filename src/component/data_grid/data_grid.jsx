@@ -15,6 +15,8 @@ import { green } from '@mui/material/colors';
 import Box from '@mui/material/Box';
 import { SxProps } from '@mui/system';
 import LineChart from '../chart/line_chart';
+import { Line } from 'react-chartjs-2';
+
 
 
 function TabPanel(props) {
@@ -58,6 +60,22 @@ const fabGreenStyle = {
     bgcolor: green[600],
   },
 };
+
+const data = {
+  labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+  datasets: [
+    {
+      label: 'Sample Data',
+      data: [12, 19, 3, 5, 2, 3],
+      fill: false,
+      borderColor: 'rgb(75, 192, 192)',
+      tension: 0.1
+    }
+  ]
+};
+
+
+
 
 export default function FloatingActionButtonZoom() {
   const theme = useTheme();
@@ -125,14 +143,11 @@ export default function FloatingActionButtonZoom() {
           
         </Tabs>
       </AppBar>
-      {/* <SwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={value}
-        onChangeIndex={handleChangeIndex}
-      > */}
-        <TabPanel value={value} index={0} dir={theme.direction}>
-          {/* <LineChart data={data}></LineChart> */}
-        </TabPanel>
+      <TabPanel value={value} index={0} dir={theme.direction}>
+        <Line data={data} />
+      </TabPanel>
+
+
         <TabPanel value={value} index={1} dir={theme.direction}>
         {/* <LineChart data={data}></LineChart> */}
         </TabPanel>
@@ -142,7 +157,6 @@ export default function FloatingActionButtonZoom() {
         <TabPanel value={value} index={3} dir={theme.direction}>
         {/* <LineChart data={data}></LineChart> */}
         </TabPanel>
-      {/* </SwipeableViews> */}
       
     </Box>
   );
