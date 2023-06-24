@@ -1,5 +1,5 @@
 import React from 'react';
-//import './header.css';
+import './header.css';
 import { AppBar, Badge, Box, IconButton, Toolbar, Typography } from '@mui/material';
 import NotificationsIcon from '@mui/icons-material/Notifications';
  const Header = () => {

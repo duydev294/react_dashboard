@@ -1,19 +1,11 @@
 import * as React from 'react';
-// import SwipeableViews from 'react-swipeable-views';
 import PropTypes from 'prop-types';
 import { useTheme } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
-import Zoom from '@mui/material/Zoom';
-import Fab from '@mui/material/Fab';
-import AddIcon from '@mui/icons-material/Add';
-import EditIcon from '@mui/icons-material/Edit';
-import UpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { green } from '@mui/material/colors';
 import Box from '@mui/material/Box';
-import { SxProps } from '@mui/system';
 import LineChart from '../chart/line_chart';
 import { useContext } from 'react';
 import { ApiContext } from '../../context/ApiProvider';
@@ -24,8 +16,8 @@ function TabPanel(props) {
 
   return (
     <Typography
-      component='div'
-      role='tabpanel'
+      component="div"
+      role="tabpanel"
       hidden={value !== index}
       id={`action-tabpanel-${index}`}
       aria-labelledby={`action-tab-${index}`}
@@ -47,20 +39,6 @@ function a11yProps(index) {
   };
 }
 
-const fabStyle = {
-  position: 'absolute',
-  bottom: 16,
-  right: 16,
-};
-
-const fabGreenStyle = {
-  color: 'common.white',
-  bgcolor: green[500],
-  '&:hover': {
-    bgcolor: green[600],
-  },
-};
-
 export default function FloatingActionButtonZoom() {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
@@ -81,10 +59,10 @@ export default function FloatingActionButtonZoom() {
       let lstPH = [];
       for (const item of chartData.list) {
         lstLabel.push(item.dt_txt);
-        lstTemp.push(item.main.temp);
+        lstPH.push(item.main.temp);
+        lstDO.push(item.main.feels_like);
         lstEC.push(item.wind.speed);
-        lstDO.push(item.main.humidity);
-        lstPH.push(item.main.feels_like);
+        lstTemp.push(item.main.humidity);
       }
       setListTemp([
         {
@@ -135,22 +113,22 @@ export default function FloatingActionButtonZoom() {
         minHeight: '100%',
       }}
     >
-      <AppBar position='static' color='default' sx={{ height: '30px' }}>
+      <AppBar position="static" color="default" sx={{ height: '30px' }}>
         <Tabs
           value={value}
           onChange={handleChange}
-          indicatorColor='primary'
-          textColor='primary'
-          variant='fullWidth'
-          aria-label='action tabs example'
-          fontSize='15'
-          minHeight='0'
+          indicatorColor="primary"
+          textColor="primary"
+          variant="fullWidth"
+          aria-label="action tabs example"
+          fontSize="15"
+          minHeight="0"
           sx={{ minHeight: '30px' }}
         >
-          <Tab label='Temp' {...a11yProps(0)} />
-          <Tab label='EC' {...a11yProps(1)} />
-          <Tab label='DO' {...a11yProps(2)} />
-          <Tab label='pH' {...a11yProps(3)} />
+          <Tab label="Temp" {...a11yProps(0)} />
+          <Tab label="EC" {...a11yProps(1)} />
+          <Tab label="DO" {...a11yProps(2)} />
+          <Tab label="pH" {...a11yProps(3)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0} dir={theme.direction}>

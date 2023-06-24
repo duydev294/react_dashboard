@@ -7,8 +7,12 @@ const StatusTable = () => {
 
   return (
     <>
-      <div className='heading flex'>Detailed status</div>
-      {apiData ? <p>{apiData.weather[0].description}</p> : null}
+      {apiData ? (
+        <>
+          <div className="heading flex">Detailed status</div>
+          <p>{apiData.weather[0].description}</p>
+        </>
+      ) : null}
     </>
   );
 };

@@ -25,13 +25,13 @@ const Mapleaflet = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          'https://api.openweathermap.org/data/2.5/weather?id=1573517&appid=20ec6b44f4246937e3befcf4bfe33e08&units=metric'
+          'https://api.openweathermap.org/data/2.5/weather?id=1573517&appid=20ec6b44f4246937e3befcf4bfe33e08&units=metric',
         );
         const response2 = await fetch(
-          'https://api.openweathermap.org/data/2.5/weather?id=1571968&appid=20ec6b44f4246937e3befcf4bfe33e08&units=metric'
+          'https://api.openweathermap.org/data/2.5/weather?id=524901&appid=20ec6b44f4246937e3befcf4bfe33e08&units=metric',
         );
         const response3 = await fetch(
-          'https://api.openweathermap.org/data/2.5/weather?id=1566346&appid=20ec6b44f4246937e3befcf4bfe33e08&units=metric'
+          'https://api.openweathermap.org/data/2.5/weather?id=5128638&appid=20ec6b44f4246937e3befcf4bfe33e08&units=metric',
         );
         const data = await response.json();
         const data2 = await response2.json();
@@ -74,14 +74,15 @@ const Mapleaflet = () => {
 
   const handleMarkerClick = async (id) => {
     await getAPIData(id);
+
     await getChartData(id);
   };
 
   return (
-    <MapContainer center={position} zoom={10}>
+    <MapContainer center={position} zoom={8}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {markers.map((marker, index) => (
         <Marker
