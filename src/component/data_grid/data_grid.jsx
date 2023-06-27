@@ -70,14 +70,20 @@ export default function FloatingActionButtonZoom() {
           data: lstTemp,
           backgroundColor: '#2196F3',
           borderColor: '#2196F3',
+          pointBorderColor: 'transparent',
+          pointBorderWidth: 2,
+          tension: 0.5,
         },
       ]);
       setListEC([
         {
           label: 'EC',
           data: lstEC,
-          backgroundColor: '#2196F3',
-          borderColor: '#2196F3',
+          backgroundColor: 'rgb(255, 99, 132)',
+          borderColor: 'rgb(255, 99, 132)',
+          pointBorderColor: 'transparent',
+          pointBorderWidth: 2,
+          tension: 0.5,
         },
       ]);
       setListDO([

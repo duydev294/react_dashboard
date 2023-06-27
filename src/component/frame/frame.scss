@@ -186,3 +186,54 @@
     width: 100%;
   }
 }
+
+td {
+  display: table-cell;
+  vertical-align: inherit;
+  top: 10px;
+}
+
+.scale_value {
+  top: 10px;
+}
+.aqi-label {
+  border-radius: 3px;
+  color: #fff;
+  font-size: 12px;
+  height: 29px;
+  margin: 2px;
+  min-width: 70px;
+  padding: 0 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.aqi-label-title {
+  background: hsl(0deg 9.21% 89.76% / 30%);
+  color: #000;
+  font-size: 12px;
+}
+
+.aqi-label-1 {
+  background: #096;
+  background: rgba(0, 153, 102, 0.75);
+  color: #fff;
+}
+
+.aqi-label-2 {
+  background: #ffde33;
+  background: rgba(255, 222, 51, 0.75);
+  color: #000;
+}
+
+.aqi-label-3 {
+  background: #f93;
+  background: rgba(255, 153, 51, 0.75);
+  color: #fff;
+}
+
+.aqi-label-4 {
+  background: #ff0048;
+  background: rgba(255, 2, 74, 0.75);
+  color: #fff;
+}

@@ -32,7 +32,7 @@ const FrameDetail = () => {
                         ? 'rgba(0,153,102,.75)'
                         : apiData.main.temp < 40
                         ? 'rgb(255 165 0)'
-                        : 'rgba(102,0,153,.75)',
+                        : 'rgba(255, 2, 74, 0.75)',
                   }}
                 >
                   {apiData.main.temp}
@@ -45,7 +45,14 @@ const FrameDetail = () => {
                 <h2
                   id="DOValue"
                   style={{
-                    color: apiData.main.humidity < 10 ? 'blue' : apiData.main.humidity < 30 ? 'orange' : 'red',
+                    color:
+                      apiData.main.humidity < 25
+                        ? 'rgb(255 165 0)'
+                        : apiData.main.humidity < 32
+                        ? 'rgba(0,153,102,.75)'
+                        : apiData.main.humidity < 40
+                        ? 'rgb(255 165 0)'
+                        : 'rgba(255, 2, 74, 0.75)',
                   }}
                 >
                   {apiData.main.humidity}
@@ -58,7 +65,14 @@ const FrameDetail = () => {
                 <h2
                   id="ECValue"
                   style={{
-                    color: apiData.wind.speed < 10 ? 'blue' : apiData.wind.speed < 30 ? 'orange' : 'red',
+                    color:
+                      apiData.wind.speed < 25
+                        ? 'rgb(255 165 0)'
+                        : apiData.wind.speed < 32
+                        ? 'rgba(0,153,102,.75)'
+                        : apiData.wind.speed < 40
+                        ? 'rgb(255 165 0)'
+                        : 'rgba(255, 2, 74, 0.75)',
                   }}
                 >
                   {apiData.wind.speed}
@@ -71,7 +85,14 @@ const FrameDetail = () => {
                 <h2
                   id="TempValue"
                   style={{
-                    color: apiData.main.feels_like < 10 ? 'blue' : apiData.main.feels_like < 30 ? 'orange' : 'red',
+                    color:
+                      apiData.main.feels_like < 25
+                        ? 'rgb(255 165 0)'
+                        : apiData.main.feels_like < 32
+                        ? 'rgba(0,153,102,.75)'
+                        : apiData.main.feels_like < 40
+                        ? 'rgb(255 165 0)'
+                        : 'rgba(255, 2, 74, 0.75)',
                   }}
                 >
                   {apiData.main.feels_like}
@@ -143,67 +164,23 @@ const FrameDetail = () => {
         ) : null}
         {apiData ? (
           <>
-            <tr>
+            <tr className="scale_value">
               <td className="aqi-label aqi-label-title">
                 <div>Quality Scale</div>
               </td>
-              <td
-                className="aqi-label aqi-label-1"
-                data-balloon-pos="up"
-                data-balloon={
-                  "<div class='tooltip-header aqi-label-1'>Good</div><img src='/images/emoticons/aqi-label-1.svg' style='width:42px;height:42px'><p>Air quality is considered satisfactory, and air pollution poses little or no risk</p>"
-                }
-              >
+              <td className="aqi-label aqi-label-1">
                 <div>Good</div>
               </td>
-              <td
-                className="aqi-label aqi-label-2"
-                data-balloon-pos="up"
-                data-balloon={
-                  "<div class='tooltip-header aqi-label-2'>Moderate</div><img src='/images/emoticons/aqi-label-2.svg' style='width:42px;height:42px'><p>Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution.</p>"
-                }
-              >
+              <td className="aqi-label aqi-label-2">
                 <div>Moderate</div>
               </td>
-              <td
-                className="aqi-label aqi-label-3"
-                data-balloon-pos="up"
-                data-balloon={
-                  "<div class='tooltip-header aqi-label-3'>Unhealthy for sensitive groups</div><img src='/images/emoticons/aqi-label-3.svg' style='width:42px;height:42px'><p>Members of sensitive groups may experience health effects. The general public is not likely to be affected.</p>"
-                }
-              >
+              <td className="aqi-label aqi-label-3">
                 <div>
                   <div>Unhealthy</div>
                 </div>
               </td>
-              <td
-                className="aqi-label aqi-label-4"
-                data-balloon-pos="up"
-                data-balloon={
-                  "<div class='tooltip-header aqi-label-4'>Unhealthy</div><img src='/images/emoticons/aqi-label-4.svg' style='width:42px;height:42px'><p>Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects</p>"
-                }
-              >
-                <div>Unhealthy</div>
-              </td>
-              <td
-                className="aqi-label aqi-label-5"
-                data-balloon-pos="up"
-                data-balloon={
-                  "<div class='tooltip-header aqi-label-5'>Very Unhealthy</div><img src='/images/emoticons/aqi-label-5.svg' style='width:42px;height:42px'><p>Health warnings of emergency conditions. The entire population is more likely to be affected.</p>"
-                }
-              >
-                <div>
-                  <div>Very Unhealthy</div>
-                </div>
-              </td>
-              <td
-                className="aqi-label aqi-label-6"
-                data-balloon-pos="up"
-                data-balloon={
-                  "<div class='tooltip-header aqi-label-6'>Hazardous</div><img src='/images/emoticons/aqi-label-6.svg' style='width:42px;height:42px'><p>Health alert: everyone may experience more serious health effects</p>"
-                }
-              >
-                <div>Hazardous</div>
+              <td className="aqi-label aqi-label-4">
+                <div>Dangerous </div>
               </td>
             </tr>
           </>
