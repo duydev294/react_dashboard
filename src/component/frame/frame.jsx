@@ -10,6 +10,7 @@ import temp from '../../Assets/temp.png';
 
 const FrameDetail = () => {
   const { apiData } = useContext(ApiContext);
+  console.log(apiData);
   return (
     <>
       <div className="listingSeclection">

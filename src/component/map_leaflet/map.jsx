@@ -11,8 +11,8 @@ const position = [20.254405, 106.306895];
 
 function GetIcon(status) {
   return L.icon({
-    // iconUrl: require("./assets/" + status + "_location.png"),
-    iconUrl: require('../../Assets/' + status + '.png'),
+    iconUrl: require('../../Assets/normal.png'),
+    // iconUrl: require('../../Assets/' + status + '.png'),
     iconSize: [38, 38],
   });
 }
@@ -30,36 +30,34 @@ const Mapleaflet = () => {
         const response2 = await fetch(
           'https://api.openweathermap.org/data/2.5/weather?id=524901&appid=20ec6b44f4246937e3befcf4bfe33e08&units=metric',
         );
-        const response3 = await fetch(
-          'https://api.openweathermap.org/data/2.5/weather?id=5128638&appid=20ec6b44f4246937e3befcf4bfe33e08&units=metric',
-        );
+        const response3 = await fetch('http://sanslab1.ddns.net:5002/api/device/get/API_key');
         const data = await response.json();
         const data2 = await response2.json();
         const data3 = await response3.json();
+
         const markerData = [
           {
             id: data.id,
             name_device: data.name,
             lat: data.coord.lat,
             lng: data.coord.lon,
-            status: data.weather.description,
-            status_flag: data.weather.main,
+            // status: data.weather[0].description,
+            // status_flag: data.weather[0].main,
           },
           {
             id: data2.id,
             name_device: data2.name,
             lat: data2.coord.lat,
             lng: data2.coord.lon,
-            status: data2.weather.description,
-            status_flag: data2.weather.main,
+            // status: data2.weather[0].description,
+            // status_flag: data2.weather[0].main,
           },
           {
-            id: data3.id,
-            name_device: data3.name,
-            lat: data3.coord.lat,
-            lng: data3.coord.lon,
-            status: data3.weather.description,
-            status_flag: data3.weather.main,
+            id: data3.API_key[0].API_key,
+            lat: data3.API_key[0].lat,
+            lng: data3.API_key[0].lon,
+            // status: data3.weather.description,
+            // status_flag: data3.weather.main,
           },
         ];
         // console.log(markerData);

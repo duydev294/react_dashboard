@@ -49,6 +49,7 @@ export default function FloatingActionButtonZoom() {
   const [listLabel, setListLabel] = React.useState([]);
 
   const { chartData } = useContext(ApiContext);
+  console.log(chartData);
 
   useEffect(() => {
     if (chartData && chartData.list && chartData.list.length > 0) {
@@ -60,9 +61,9 @@ export default function FloatingActionButtonZoom() {
       for (const item of chartData.list) {
         lstLabel.push(item.dt_txt);
         lstPH.push(item.main.temp);
-        lstDO.push(item.main.feels_like);
+        lstDO.push(item.main.humidity);
         lstEC.push(item.wind.speed);
-        lstTemp.push(item.main.humidity);
+        lstTemp.push(item.main.feels_like);
       }
       setListTemp([
         {
@@ -90,16 +91,16 @@ export default function FloatingActionButtonZoom() {
         {
           label: 'DO',
           data: lstDO,
-          backgroundColor: '#2196F3',
-          borderColor: '#2196F3',
+          backgroundColor: 'rgba(255, 153, 51, 0.75)',
+          borderColor: 'rgba(255, 153, 51, 0.75)',
         },
       ]);
       setListPH([
         {
           label: 'PH',
           data: lstPH,
-          backgroundColor: '#2196F3',
-          borderColor: '#2196F3',
+          backgroundColor: 'rgba(0, 153, 102, 0.75)',
+          borderColor: 'rgba(0, 153, 102, 0.75)',
         },
       ]);
       setListLabel(lstLabel);

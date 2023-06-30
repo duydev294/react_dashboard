@@ -40,7 +40,7 @@ export const ApiProvider = ({ children }) => {
     getAPIData: async (id) => {
       try {
         const response = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?id=${id}&appid=20ec6b44f4246937e3befcf4bfe33e08&units=metric`
+          `https://api.openweathermap.org/data/2.5/weather?id=${id}&appid=20ec6b44f4246937e3befcf4bfe33e08&units=metric`,
         );
         const data = await response.json();
         dispatch({ type: actions.GET_API_DATA, data });
@@ -51,7 +51,7 @@ export const ApiProvider = ({ children }) => {
     getChartData: async (id) => {
       try {
         const response = await fetch(
-          `https://api.openweathermap.org/data/2.5/forecast?id=${id}&appid=20ec6b44f4246937e3befcf4bfe33e08`
+          `https://api.openweathermap.org/data/2.5/forecast?id=${id}&appid=20ec6b44f4246937e3befcf4bfe33e08&units=metric`,
         );
         const data = await response.json();
         dispatch({ type: actions.GET_CHART_DATA, data });
