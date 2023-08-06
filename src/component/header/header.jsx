@@ -26,9 +26,9 @@ const Header = () => {
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton size="large" color="inherit">
-              <Badge badgeContent={noti} color="error">
+              {/* <Badge badgeContent={noti} color="error">
                 <NotificationsIcon />
-              </Badge>
+              </Badge> */}
             </IconButton>
             <Avatar />
           </Box>

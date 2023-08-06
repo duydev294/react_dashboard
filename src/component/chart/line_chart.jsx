@@ -2,7 +2,8 @@ import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip } from 'chart.js';
 import { Hidden } from '@mui/material';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip);
-const LineChart = ({ listLabel, listData }) => {
+const LineChart = ({ listLabel, listData,min_data }) => {
+  console.log(listLabel,listData,min_data)
   const options = {
     plugins: {
       legend: {
@@ -16,7 +17,7 @@ const LineChart = ({ listLabel, listData }) => {
         },
       },
       y: {
-        min: 0,
+        min: min_data,
         ticks: {
           callback: (value) => value,
         },

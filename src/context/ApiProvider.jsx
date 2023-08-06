@@ -33,27 +33,23 @@ const reducer = (state, action) => {
 
 export const ApiProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
+  
   const value = {
     apiData: state.apiData,
     chartData: state.chartData,
-    getAPIData: async (id) => {
+    getChartData: async (API, num_data) => {
       try {
+        console.log(API)
         const response = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?id=${id}&appid=20ec6b44f4246937e3befcf4bfe33e08&units=metric`,
+          'http://127.0.0.1:5002/api/device/get/data_by_key',
+          {method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body:JSON.stringify({API_key:API, num_data:num_data})},
         );
         const data = await response.json();
-        dispatch({ type: actions.GET_API_DATA, data });
-      } catch (error) {
-        console.error('Error fetching API data:', error);
-      }
-    },
-    getChartData: async (id) => {
-      try {
-        const response = await fetch(
-          `https://api.openweathermap.org/data/2.5/forecast?id=${id}&appid=20ec6b44f4246937e3befcf4bfe33e08&units=metric`,
-        );
-        const data = await response.json();
+        console.log((data))
         dispatch({ type: actions.GET_CHART_DATA, data });
       } catch (error) {
         console.error('Error fetching API data:', error);

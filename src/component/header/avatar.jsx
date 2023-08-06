@@ -5,7 +5,7 @@ import React from 'react';
 function Avatar() {
   return (
     <>
-      <div>A</div>
+      <div></div>
     </>
   );
 }

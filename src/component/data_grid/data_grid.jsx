@@ -49,22 +49,26 @@ export default function FloatingActionButtonZoom() {
   const [listLabel, setListLabel] = React.useState([]);
 
   const { chartData } = useContext(ApiContext);
-  console.log(chartData);
+  if(chartData){
+    console.log(chartData.data.data);
+  }
+ 
 
   useEffect(() => {
-    if (chartData && chartData.list && chartData.list.length > 0) {
+    if (chartData && chartData.data && chartData.data.data.length > 0) {
       let lstLabel = [];
       let lstTemp = [];
       let lstEC = [];
       let lstDO = [];
       let lstPH = [];
-      for (const item of chartData.list) {
-        lstLabel.push(item.dt_txt);
-        lstPH.push(item.main.temp);
-        lstDO.push(item.main.humidity);
-        lstEC.push(item.wind.speed);
-        lstTemp.push(item.main.feels_like);
-      }
+
+      chartData.data.data.forEach(item=>{
+        lstLabel.push(item.time);
+        lstPH.push(item.pH);
+        lstDO.push(item.DO);
+        lstEC.push(item.EC);
+        lstTemp.push(item.Temp);
+      })
       setListTemp([
         {
           label: 'Nhiệt độ',
@@ -103,6 +107,7 @@ export default function FloatingActionButtonZoom() {
           borderColor: 'rgba(0, 153, 102, 0.75)',
         },
       ]);
+      console.log(listTemp)
       setListLabel(lstLabel);
     }
   }, [chartData]);
@@ -139,17 +144,17 @@ export default function FloatingActionButtonZoom() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0} dir={theme.direction}>
-        <LineChart listLabel={listLabel} listData={listTemp}></LineChart>
+        <LineChart listLabel={listLabel} listData={listTemp} min_data={20}></LineChart>
       </TabPanel>
 
       <TabPanel value={value} index={1} dir={theme.direction}>
-        <LineChart listLabel={listLabel} listData={listEC}></LineChart>
+        <LineChart listLabel={listLabel} listData={listEC} min_data={0}></LineChart>
       </TabPanel>
       <TabPanel value={value} index={2} dir={theme.direction}>
-        <LineChart listLabel={listLabel} listData={listDO}></LineChart>
+        <LineChart listLabel={listLabel} listData={listDO} min_data={0}></LineChart>
       </TabPanel>
       <TabPanel value={value} index={3} dir={theme.direction}>
-        <LineChart listLabel={listLabel} listData={listPH}></LineChart>
+        <LineChart listLabel={listLabel} listData={listPH} min_data ={5}></LineChart>
       </TabPanel>
     </Box>
   );
