@@ -11,14 +11,15 @@ import temp from '../../Assets/temp.png';
 const FrameDetail = () => {
   const { chartData } = useContext(ApiContext);
   console.log(chartData);
-  var curent_data = {}
-var arlert_type =[]
-var forecast_data = []
- if(chartData){
-   curent_data = chartData.data.data[chartData.data.data.length - 1]
-  arlert_type = chartData.data.Alert_t
-  forecast_data = [23,12,7.8,3]
- }
+  var curent_data = {};
+  var arlert_type = [];
+  var forecast_data = [];
+  if (chartData) {
+    curent_data = chartData.data.data[chartData.data.data.length - 1];
+    console.log(curent_data);
+    arlert_type = chartData.data.Alert_t;
+    forecast_data = [23, 12, 7.8, 3];
+  }
   return (
     <>
       <div className="listingSeclection">
@@ -35,7 +36,7 @@ var forecast_data = []
                   id="pHValue"
                   style={{
                     color:
-                   arlert_type[0] === 1
+                      arlert_type[0] === 1
                         ? 'rgb(255 165 0)'
                         : arlert_type[0] === 1.2
                         ? 'rgba(0,153,102,.75)'
@@ -44,29 +45,9 @@ var forecast_data = []
                         : 'rgba(255, 2, 74, 0.75)',
                   }}
                 >
-                  {curent_data.Temp }
+                  {curent_data.Temp}
                 </h2>
                 {/* <h3 className="itemUnit">°C</h3> */}
-              </div>
-
-              <div className="singleItem">
-                <img className="imgEC" src={pH_img} alt="pH" />
-                <h2
-                  id="pHValue"
-                  style={{
-                    color:
-                    arlert_type[1] === 4
-                        ? 'rgb(255 165 0)'
-                        : arlert_type[1] === 4.2
-                        ? 'rgba(0,153,102,.75)'
-                        : arlert_type[1] === 4.1
-                        ? 'rgb(255 165 0)'
-                        : 'rgba(255, 2, 74, 0.75)',
-                  }}
-                >
-                  {curent_data.pH}
-                </h2>
-                {/* <h3 className="itemUnit">pH</h3> */}
               </div>
 
               <div className="singleItem">
@@ -75,7 +56,7 @@ var forecast_data = []
                   id="ECValue"
                   style={{
                     color:
-                    arlert_type[3] === 3.0
+                      arlert_type[3] === 3.0
                         ? 'rgb(255 165 0)'
                         : arlert_type[3] === 3.2
                         ? 'rgba(0,153,102,.75)'
@@ -90,14 +71,14 @@ var forecast_data = []
               </div>
 
               <div className="singleItem">
-                <img className="imgEC" src={DO} alt="DO" />
+                <img className="imgDO" src={DO} alt="DO" />
                 <h2
                   id="DOValue"
                   style={{
                     color:
-                    arlert_type[2] === 2
+                      arlert_type[2] === 2
                         ? 'rgb(255 165 0)'
-                        :arlert_type[2] === 2.2
+                        : arlert_type[2] === 2.2
                         ? 'rgba(0,153,102,.75)'
                         : arlert_type[2] === 2.1
                         ? 'rgb(255 165 0)'
@@ -106,7 +87,27 @@ var forecast_data = []
                 >
                   {curent_data.DO}
                 </h2>
-                <h3 className="itemUnit"></h3>
+                {/* <h3 className="itemUnit"></h3> */}
+              </div>
+
+              <div className="singleItem">
+                <img className="imgEC" src={pH_img} alt="pH" />
+                <h2
+                  id="pHValue"
+                  style={{
+                    color:
+                      arlert_type[1] === 4
+                        ? 'rgb(255 165 0)'
+                        : arlert_type[1] === 4.2
+                        ? 'rgba(0,153,102,.75)'
+                        : arlert_type[1] === 4.1
+                        ? 'rgb(255 165 0)'
+                        : 'rgba(255, 2, 74, 0.75)',
+                  }}
+                >
+                  {curent_data.pH}
+                </h2>
+                {/* <h3 className="itemUnit">pH</h3> */}
               </div>
             </div>
           </>
@@ -127,7 +128,6 @@ var forecast_data = []
                 >
                   {forecast_data[2]}
                 </h2>
-                
               </div>
 
               <div className="singleItem">
@@ -140,7 +140,6 @@ var forecast_data = []
                 >
                   {forecast_data[3]}
                 </h2>
-                
               </div>
 
               <div className="singleItem">
@@ -153,7 +152,6 @@ var forecast_data = []
                 >
                   {forecast_data[1]}
                 </h2>
-                
               </div>
 
               <div className="singleItem">
@@ -166,7 +164,6 @@ var forecast_data = []
                 >
                   {forecast_data[0]}
                 </h2>
-                
               </div>
             </div>
           </>

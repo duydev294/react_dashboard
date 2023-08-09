@@ -7,7 +7,7 @@ import L from 'leaflet';
 import { useContext } from 'react';
 import { ApiContext } from '../../context/ApiProvider';
 
-const position = [20.162247, 106.343542]
+const position = [20.162247, 106.343542];
 
 function GetIcon(status) {
   return L.icon({
@@ -24,18 +24,18 @@ const Mapleaflet = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response3 = await fetch('http://127.0.0.1:5002/api/device/get/API_key');
+        const response3 = await fetch('http://sanslab1.ddns.net:5002/api/device/get/API_key');
         const data3 = await response3.json();
-        console.log(data3)
-        
-        var markerData = []
-        if(data3 != null){
-          data3.API_key.forEach(device => {
+        console.log(data3);
+
+        var markerData = [];
+        if (data3 != null) {
+          data3.API_key.forEach((device) => {
             markerData.push({
-              id:device.API_key,
+              id: device.API_key,
               lat: device.lat,
-              lon: device.lon
-            })
+              lon: device.lon,
+            });
           });
         }
         console.log(markerData);
@@ -48,9 +48,9 @@ const Mapleaflet = () => {
     fetchData();
   }, []);
 
-  const handleMarkerClick = async (id,num_data) => {
-    console.log('API:'+id)
-    await getChartData(id,num_data);
+  const handleMarkerClick = async (id, num_data) => {
+    console.log('API:' + id);
+    await getChartData(id, num_data);
   };
 
   return (
@@ -65,13 +65,11 @@ const Mapleaflet = () => {
           position={[marker.lat, marker.lon]}
           icon={GetIcon(marker.id)}
           eventHandlers={{
-            click: () => handleMarkerClick(marker.id,50),
+            click: () => handleMarkerClick(marker.id, 50),
           }}
         >
           <Popup>
-            <h5>
-              {marker.id} 
-            </h5>
+            <h5>{marker.id}</h5>
           </Popup>
         </Marker>
       ))}

@@ -8,8 +8,6 @@ import FloatingActionButtonZoom from '../data_grid/data_grid';
 import FrameDetail from '../frame/frame';
 import '../dashboard/dashboard.scss';
 import FixedBottomNavigation from '../status/statusDevice';
-import WAQIProjectInfo from '../info';
-// import data from "../chart/data"
 export default function Dashboard() {
 
   return (

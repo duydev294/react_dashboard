@@ -1,10 +1,8 @@
 import React from 'react';
 import Avatar from './avatar';
 import './header.css';
-import { AppBar, Badge, Box, IconButton, Toolbar, Typography } from '@mui/material';
-import NotificationsIcon from '@mui/icons-material/Notifications';
+import { AppBar, Box, IconButton, Toolbar, Typography } from '@mui/material';
 const Header = () => {
-  var noti = 6;
   return (
     <Box sx={{ flexGrow: 1, p: 4 }}>
       <AppBar position="fixed">
